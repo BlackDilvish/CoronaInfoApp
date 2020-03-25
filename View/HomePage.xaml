@@ -11,6 +11,7 @@
         <Button x:Name="btnDownload" Content="Pobierz" HorizontalAlignment="Left" Margin="151,106,0,0" VerticalAlignment="Top" Width="75" Click="btnDownload_Click"/>
         <Button x:Name="btnReset" Content="LoadDB" HorizontalAlignment="Left" Margin="292,106,0,0" VerticalAlignment="Top" Width="75" Click="btnReset_Click"/>
         <Button x:Name="btnGetFromDB" Content="DowloadFromDB" HorizontalAlignment="Left" Margin="427,136,0,0" VerticalAlignment="Top" Height="33" Width="102" Click="btnGetFromDB_Click"/>
+        <Button x:Name="btnToChart" Content="Go to chart" HorizontalAlignment="Left" Margin="427,197,0,0" VerticalAlignment="Top" Height="28" Width="102" Click="btnToChart_Click"/>
 
     </Grid>
 </UserControl>

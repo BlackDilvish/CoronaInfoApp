@@ -44,5 +44,10 @@ namespace CoronaInfoAppCore.View
             foreach (var cas in getter.GetCases("Italy", CaseType.Confirmed, new DateTime(2020, 3, 4)))
                 tbDownloaded.Text += $"{cas.CountryName} - {cas.Date} - {cas.NumberOfCases}\n";
         }
+
+        private void btnToChart_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new LineChartPage());
+        }
     }
 }
