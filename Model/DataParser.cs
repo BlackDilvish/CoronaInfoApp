@@ -19,7 +19,7 @@ namespace CoronaInfoAppCore.Model
                     continue;
 
                 var infoConfirmed = linesConfirmed[i].Split(',');
-                var infoRecovered = linesRecovered[i].Split(',');
+                //var infoRecovered = linesRecovered[i].Split(',');
                 var infoDeaths = linesDeaths[i].Split(',');
 
                 try
@@ -28,14 +28,14 @@ namespace CoronaInfoAppCore.Model
 
                     ParseInfo(country, infoConfirmed);
                     ParseConfirmed(country, infoConfirmed);
-                    ParseRecovered(country, infoRecovered);
+                    //ParseRecovered(country, infoRecovered); //Source is corrupted
                     ParseDeaths(country, infoDeaths);
 
                     countries.Add(country);
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Message + i);
                 }
 
             }
@@ -48,7 +48,6 @@ namespace CoronaInfoAppCore.Model
             country.Name = info[1];
             country.Province = info[0];
             country.Latitude = info[2];
-            country.Longitude = info[3];
         }
 
         static void ParseConfirmed(Country country, string[] info)
@@ -61,6 +60,7 @@ namespace CoronaInfoAppCore.Model
                 {
                     Date = startDate.AddDays(i),
                     CountryName = country.Name,
+                    CountryProvince = country.Province,
                     NumberOfCases = int.Parse(info[4 + i]),
                     Type = (int)CaseType.Confirmed
                 });
@@ -76,6 +76,7 @@ namespace CoronaInfoAppCore.Model
                 {
                     Date = startDate.AddDays(i),
                     CountryName = country.Name,
+                    CountryProvince = country.Province,
                     NumberOfCases = int.Parse(info[4 + i]),
                     Type = (int) CaseType.Recovered
                 });
@@ -91,6 +92,7 @@ namespace CoronaInfoAppCore.Model
                 {
                     Date = startDate.AddDays(i),
                     CountryName = country.Name,
+                    CountryProvince = country.Province,
                     NumberOfCases = int.Parse(info[4 + i]),
                     Type = (int)CaseType.Deaths
                 });

@@ -20,7 +20,7 @@
             <Label Content="Wybierz prowincję:" HorizontalAlignment="Center" Margin="0,10,0,0"/>
             <ComboBox x:Name="cbxProvinceSelection" Margin="5,0,5,5" SelectionChanged="cbxProvinceSelection_SelectionChanged" IsEnabled="False" />
             <Label Content="Wybierz typ danych:" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-            <ComboBox x:Name="cbxDataTypeSelection" Margin="5,0,5,5" SelectionChanged="cbxDataTypeSelection_SelectionChanged" IsEnabled="False" />
+            <ComboBox x:Name="cbxCaseTypeSelection" Margin="5,0,5,5" SelectionChanged="cbxDataTypeSelection_SelectionChanged" IsEnabled="False" />
             <Button x:Name="btnCreateChart" Content="Ustaw Nowy" Margin="5,10,5,5" Click="btnCreateChart_Click" IsEnabled="False" />
         </StackPanel>
         

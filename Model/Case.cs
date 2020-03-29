@@ -10,6 +10,7 @@ namespace CoronaInfoAppCore.Model
     {
         public int ID { get; set; }
         public string CountryName { get; set; }
+        public string CountryProvince { get; set; }
         public DateTime Date { get; set; }
         public int NumberOfCases { get; set; }
         public int Type { get; set; }

@@ -25,13 +25,19 @@ namespace CoronaInfoAppCore.View
 
             DataGetter getter = new DataGetter();
 
-            foreach (var cas in getter.GetCases("Italy", CaseType.Deaths, new DateTime(2020, 3, 15)))
+            foreach (var cas in getter.GetCases("Italy", "", (int)CaseType.Deaths, new DateTime(2020, 3, 15)))
                 tbDownloaded.Text += $"{cas.CountryName} - {cas.Date} - {cas.NumberOfCases}\n";
+            //var Base = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_";
+            //var countries = DataParser.ParseRequest(RestClient.MakeRequest(Base + "confirmed_global.csv"),
+            //                                            RestClient.MakeRequest(Base + "recovered_global.csv"),
+            //                                            RestClient.MakeRequest(Base + "deaths_global.csv"));
+            //foreach (var c in countries)
+            //    tbDownloaded.Text += c.Name + "\n";
         }
 
         private async void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            await DataLoader.UpdateDatabase();
+            await DataLoader.UpdateWholeDatabase();
             MessageBox.Show("Baza wirusów została zaktualizowana");
         }
 
@@ -41,7 +47,7 @@ namespace CoronaInfoAppCore.View
 
             DataGetter getter = new DataGetter();
 
-            foreach (var cas in getter.GetCases("Italy", CaseType.Confirmed, new DateTime(2020, 3, 4)))
+            foreach (var cas in getter.GetCases("US", "Washington", (int)CaseType.Confirmed, new DateTime(2020, 3, 4)))
                 tbDownloaded.Text += $"{cas.CountryName} - {cas.Date} - {cas.NumberOfCases}\n";
         }
 
