@@ -12,14 +12,7 @@ namespace CoronaInfoAppCore.ViewModel
     {
         public LineSeries GetSeries(string countryName, int type, DateTime? startDate = null, DateTime? endDate = null)
         {
-            var getter = new DataGetter();
-            var cases = getter.GetCases(countryName, type, startDate, endDate);
-
-            return new LineSeries()
-            {
-                Title = $"{((CaseType)type).ToString()} in {countryName}",
-                Values = new ChartValues<int>(cases.Select(c => c.NumberOfCases)),
-            };
+            return GetSeries(countryName, "", type, startDate, endDate);
         }
 
         public LineSeries GetSeries(string countryName, string provinceName, int type, DateTime? startDate = null, DateTime? endDate = null)
@@ -38,6 +31,11 @@ namespace CoronaInfoAppCore.ViewModel
         {
             var getter = new DataGetter();
             return getter.GetCases("Poland", 0, startDate, endDate).Select(c => c.Date.ToShortDateString()).ToArray();
+        }
+
+        public void AddSeries(SeriesCollection series, string countryName, string provinceName, int type, DateTime? startDate = null, DateTime? endDate = null)
+        {
+            series.Add(GetSeries(countryName, provinceName, type, startDate, endDate));
         }
     }
 }
